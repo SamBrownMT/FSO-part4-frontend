@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Blog from './components/Blog'
 import blogService from './services/blogs'
+import loginService from './services/login'
 
 const App = () => {
   const [blogs, setBlogs] = useState([])
@@ -15,6 +16,7 @@ const App = () => {
 
   const handleLogin = (event) => {
     event.preventDefault()
+    loginService.login({username: username, password: password})
     console.log('logging in with', username, password)
   }
 
